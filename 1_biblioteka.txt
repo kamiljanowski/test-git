@@ -1,0 +1,45 @@
+ksiazka; gatunek; naukowa; biograficzna; przygodowa; 
+naukowe = 0; 
+biografie = 0; 
+przygodowe = 0;
+
+ksiazka = odbierz_ksiazke( );
+
+while (ksiazka != 0)
+{
+    gatunek = sprawdz_gatunek_ksiazki(ksiazka);
+
+    if (gatunek == naukowa)
+    {
+        naukowe = naukowe + ksiazka;
+        if (naukowe >= 5)
+        {
+            odloz_na_polke_z_ksiazkami_naukowymi(naukowe);
+            naukowe = 0;
+        }
+    }
+    else if (gatunek == biograficzna)
+    {
+        biografie = biografie + ksiazka;
+        if (biografie >= 5)
+        {
+            odloz_na_polke_z_ksiazkami_biograficznymi(biografie);
+            biografie = 0;
+        }
+    }
+    else if (gatunek == przygodowa)
+    {
+        przygodowe = przygodowe + ksiazka;
+        if (przygodowe >= 5)
+        {
+            odloz_na_polke_z_ksiazkami_przygodowymi(przygodowe);
+            przygodowe = 0;
+        }
+    }
+    else
+    {
+        odloz_na_bok(ksiazka);
+        wyswietl_komunikat(”Przyjmuje tylko ksiazki naukowe, biograficzne lub przygodowe”);
+    }
+    ksiazka = odbierz_ksiazke( );
+}
